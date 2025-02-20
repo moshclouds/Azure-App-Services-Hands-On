@@ -22,15 +22,15 @@ jobs:
       -
         name: Build and Push
         run: |
-          docker build . -t ${{secrets.AZCR_REGISTRY_SERVER}}/just_react:${{ github.sha }}
-          docker push ${{secrets.AZCR_REGISTRY_SERVER}}/just_react:${{ github.sha }}
+          docker build . -t ${{secrets.AZCR_REGISTRY_SERVER}}/${{secrets.AZCR_REPO_NAME}}:${{ github.sha }}
+          docker push ${{secrets.AZCR_REGISTRY_SERVER}}/${{secrets.AZCR_REPO_NAME}}:${{ github.sha }}
       -
         name: Deploy To Azure App Service
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{secrets.AZAS_APP_NAME}}
           publish-profile: ${{ secrets.AZURE_APP_SERVICES_PUBLISH_PROFILE }}
-          images: '${{secrets.AZCR_REGISTRY_SERVER}}/just_react:${{ github.sha }}'
+          images: '${{secrets.AZCR_REGISTRY_SERVER}}/${{secrets.AZCR_REPO_NAME}}:${{ github.sha }}'
       -
         name: Add build summary
         run: |
@@ -39,6 +39,4 @@ jobs:
           echo '🔧 **Build Status**: The Docker image has been successfully built and pushed.' >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
           echo '🛠️ **Build Context**: .' >> $GITHUB_STEP_SUMMARY
-          echo '📦 **Image Tag**: ${{ secrets.DOCKERHUB_USERNAME }}/just_react:${{ github.sha }}' >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
-          echo '🎉 **Thanks for using GitHub Actions!**' >> $GITHUB_STEP_SUMMARY

@@ -1,6 +1,6 @@
 # Azure App Services HandsOn
 
-<img width="960" alt="Image" src="https://github.com/user-attachments/assets/882aea92-fc25-4e54-9ec1-d7da3c9c67dc" />
+<img width="960" alt="Image" src="https://github.com/user-attachments/assets/e62b4d25-0641-4075-8e9f-9fb97e804a01" />
 
 <br>
 

@@ -163,8 +163,6 @@ Yaml file can be found in the ".github" directory in the source code. This workf
 
 ![Image](https://github.com/user-attachments/assets/ceed883d-839f-4043-a9c5-fcb6afdfc9bb)
 
-<br>
-
 ### Configure Azure Publish Profile in GitHub Secrets
 
 1. **Download the Azure publish profile** from **Azure App Service** → **Deployment Center**.
